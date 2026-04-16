@@ -11,7 +11,7 @@ import {
   Timestamp,
 } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import { auditLog } from '@/lib/services/auditService';
+import { AuditService } from '@/lib/services/auditService';
 
 export type CompanyStatus = 'pending' | 'approved' | 'suspended' | 'rejected';
 
@@ -85,7 +85,7 @@ export const companyManagementService = {
       };
 
       await setDoc(newCompanyRef, company);
-      await auditLog('COMPANY_APPLICATION_SUBMITTED', `New company application: ${company.name}`, adminId);
+      await AuditService.logActivity('system', adminId, 'COMPANY_APPLICATION_SUBMITTED', 'companies', company.id);
       return company;
     } catch (error) {
       console.error('Error submitting company application:', error);
@@ -133,7 +133,7 @@ export const companyManagementService = {
         'subscription.status': 'active',
         updatedAt: Timestamp.now(),
       });
-      await auditLog('COMPANY_APPROVED', `Company approved: ${companyId}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'COMPANY_APPROVED', 'companies', companyId);
       return { success: true };
     } catch (error) {
       console.error('Error approving company:', error);
@@ -149,7 +149,7 @@ export const companyManagementService = {
         status: 'rejected',
         updatedAt: Timestamp.now(),
       });
-      await auditLog('COMPANY_REJECTED', `Company rejected: ${companyId}. Reason: ${reason}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'COMPANY_REJECTED', 'companies', companyId, { reason });
       return { success: true };
     } catch (error) {
       console.error('Error rejecting company:', error);
@@ -166,7 +166,7 @@ export const companyManagementService = {
         'subscription.status': 'suspended',
         updatedAt: Timestamp.now(),
       });
-      await auditLog('COMPANY_SUSPENDED', `Company suspended: ${companyId}. Reason: ${reason}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'COMPANY_SUSPENDED', 'companies', companyId, { reason });
       return { success: true };
     } catch (error) {
       console.error('Error suspending company:', error);
@@ -183,7 +183,7 @@ export const companyManagementService = {
         'subscription.status': 'active',
         updatedAt: Timestamp.now(),
       });
-      await auditLog('COMPANY_ACTIVATED', `Company activated: ${companyId}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'COMPANY_ACTIVATED', 'companies', companyId);
       return { success: true };
     } catch (error) {
       console.error('Error activating company:', error);
@@ -213,7 +213,7 @@ export const companyManagementService = {
         'subscription.storageGB': limits.storageGB,
         updatedAt: Timestamp.now(),
       });
-      await auditLog('SUBSCRIPTION_UPDATED', `Company ${companyId} upgraded to ${plan}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'SUBSCRIPTION_UPDATED', 'companies', companyId, { plan });
       return { success: true };
     } catch (error) {
       console.error('Error updating subscription:', error);
@@ -234,7 +234,7 @@ export const companyManagementService = {
         updateData[`modules.${key}`] = value;
       });
       await updateDoc(companyRef, updateData);
-      await auditLog('MODULES_UPDATED', `Modules updated for company ${companyId}`, superAdminId);
+      await AuditService.logActivity('system', superAdminId, 'MODULES_UPDATED', 'companies', companyId, modules);
       return { success: true };
     } catch (error) {
       console.error('Error updating modules:', error);
