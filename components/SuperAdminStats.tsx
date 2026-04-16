@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { StatCard } from '@/components/StatCard';
+import { Building2, CheckCircle2, Clock, AlertCircle, DollarSign, Users } from 'lucide-react';
 
 interface SuperAdminStatsProps {
   totalCompanies: number;
@@ -13,11 +14,53 @@ interface SuperAdminStatsProps {
   totalUsers: number;
 }
 
-export function SuperAdminStats(props: SuperAdminStatsProps) {
+export function SuperAdminStats({
+  totalCompanies,
+  activeCompanies,
+  pendingApprovals,
+  suspendedCompanies,
+  monthlyRevenue,
+  totalUsers,
+}: SuperAdminStatsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <StatCard
-        label="Total Empresas"
+        title="Total Empresas"
+        value={totalCompanies}
+        icon={<Building2 className="h-5 w-5" />}
+        trend={{ value: 12, direction: 'up' }}
+      />
+      <StatCard
+        title="Empresas Activas"
+        value={activeCompanies}
+        icon={<CheckCircle2 className="h-5 w-5" />}
+        trend={{ value: 8, direction: 'up' }}
+      />
+      <StatCard
+        title="Aprobaciones Pendientes"
+        value={pendingApprovals}
+        icon={<Clock className="h-5 w-5" />}
+      />
+      <StatCard
+        title="Empresas Suspendidas"
+        value={suspendedCompanies}
+        icon={<AlertCircle className="h-5 w-5" />}
+      />
+      <StatCard
+        title="Ingresos Mensuales"
+        value={`$${monthlyRevenue.toLocaleString()}`}
+        icon={<DollarSign className="h-5 w-5" />}
+        trend={{ value: 15, direction: 'up' }}
+      />
+      <StatCard
+        title="Usuarios Totales"
+        value={totalUsers}
+        icon={<Users className="h-5 w-5" />}
+        trend={{ value: 5, direction: 'up' }}
+      />
+    </div>
+  );
+}
         value={props.totalCompanies}
         change="+12%"
         icon="building2"
