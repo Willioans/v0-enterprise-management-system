@@ -203,4 +203,6 @@ export default function SuperAdminPage() {
           </TabsContent>
         </Tabs>
       </div>
+    </PanelLayout>
+  );
 }
