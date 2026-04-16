@@ -1,0 +1,55 @@
+{
+  "common": {
+    "appName": "H&I System",
+    "welcome": "Bem-vindo",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "search": "Pesquisar",
+    "back": "Voltar",
+    "logout": "Sair",
+    "profile": "Perfil"
+  },
+  "auth": {
+    "login": "Entrar",
+    "register": "Registre-se",
+    "email": "Email",
+    "password": "Senha",
+    "name": "Primeiro Nome",
+    "lastName": "Sobrenome",
+    "forgotPassword": "Esqueceu sua senha?",
+    "signUpNow": "Registre-se agora",
+    "signInNow": "Entrar",
+    "loginSuccess": "Login bem-sucedido",
+    "registerSuccess": "Registro bem-sucedido",
+    "invalidCredentials": "Credenciais inválidas",
+    "userExists": "O usuário já existe"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "overview": "Visão geral",
+    "sales": "Vendas",
+    "inventory": "Inventário",
+    "finance": "Finanças",
+    "hr": "RH"
+  },
+  "panels": {
+    "superAdmin": "Super Administrador",
+    "admin": "Administrador de Negócios",
+    "sales": "Ponto de Venda",
+    "inventory": "Inventário",
+    "finance": "Financeiro",
+    "hr": "Recursos Humanos",
+    "customer": "Portal do Cliente"
+  },
+  "currency": {
+    "USD": "Dólar Americano",
+    "EUR": "Euro",
+    "MXN": "Peso Mexicano",
+    "COP": "Peso Colombiano",
+    "BRL": "Real Brasileiro",
+    "ARS": "Peso Argentino"
+  }
+}

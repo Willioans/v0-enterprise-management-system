@@ -1,0 +1,55 @@
+{
+  "common": {
+    "appName": "H&I System",
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "back": "Back",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "name": "First Name",
+    "lastName": "Last Name",
+    "forgotPassword": "Forgot your password?",
+    "signUpNow": "Sign up now",
+    "signInNow": "Sign in",
+    "loginSuccess": "Login successful",
+    "registerSuccess": "Registration successful",
+    "invalidCredentials": "Invalid credentials",
+    "userExists": "User already exists"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "sales": "Sales",
+    "inventory": "Inventory",
+    "finance": "Finance",
+    "hr": "HR"
+  },
+  "panels": {
+    "superAdmin": "Super Admin",
+    "admin": "Business Admin",
+    "sales": "Point of Sale",
+    "inventory": "Inventory",
+    "finance": "Finance",
+    "hr": "Human Resources",
+    "customer": "Customer Portal"
+  },
+  "currency": {
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "MXN": "Mexican Peso",
+    "COP": "Colombian Peso",
+    "BRL": "Brazilian Real",
+    "ARS": "Argentine Peso"
+  }
+}
