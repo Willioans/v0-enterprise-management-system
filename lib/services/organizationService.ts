@@ -9,7 +9,7 @@ import {
   getDocs,
   updateDoc,
   deleteDoc,
-} from '@firebase/firestore';
+} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Organization, Branch, User, UserRole } from '../schemas';
 

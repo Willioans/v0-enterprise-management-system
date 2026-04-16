@@ -8,8 +8,8 @@ import {
   User as FirebaseUser,
   sendPasswordResetEmail,
   updateProfile,
-} from '@firebase/auth';
-import { doc, setDoc, getDoc, updateDoc } from '@firebase/firestore';
+} from 'firebase/auth';
+import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { User, UserRole } from '../schemas';
 

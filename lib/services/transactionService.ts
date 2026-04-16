@@ -8,7 +8,7 @@ import {
   where,
   getDocs,
   updateDoc,
-} from '@firebase/firestore';
+} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Transaction } from '../schemas';
 

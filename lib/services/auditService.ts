@@ -1,5 +1,5 @@
 // lib/services/auditService.ts
-import { collection, doc, setDoc, query, where, getDocs } from '@firebase/firestore';
+import { collection, doc, setDoc, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuditLog } from '../schemas';
 
