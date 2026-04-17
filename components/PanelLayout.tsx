@@ -12,6 +12,7 @@ import { useState } from 'react';
 interface PanelLayoutProps {
   title: string;
   description?: string;
+  subtitle?: string; // alias for description
   children: ReactNode;
   breadcrumbs?: Array<{ label: string; href?: string }>;
 }
@@ -19,9 +20,11 @@ interface PanelLayoutProps {
 export function PanelLayout({
   title,
   description,
+  subtitle,
   children,
   breadcrumbs,
 }: PanelLayoutProps) {
+  const displayDescription = description ?? subtitle;
   const router = useRouter();
   const { user, logout } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -47,7 +50,7 @@ export function PanelLayout({
             </Button>
             <div>
               <h1 className="text-2xl font-bold text-foreground">{title}</h1>
-              {description && <p className="text-sm text-muted-foreground">{description}</p>}
+              {displayDescription && <p className="text-sm text-muted-foreground">{displayDescription}</p>}
             </div>
           </div>
 
