@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { StatCard } from '@/components/StatCard';
 import { Building2, CheckCircle2, Clock, AlertCircle, DollarSign, Users } from 'lucide-react';
 
@@ -14,47 +12,40 @@ interface SuperAdminStatsProps {
   totalUsers: number;
 }
 
-export function SuperAdminStats({
-  totalCompanies,
-  activeCompanies,
-  pendingApprovals,
-  suspendedCompanies,
-  monthlyRevenue,
-  totalUsers,
-}: SuperAdminStatsProps) {
+export function SuperAdminStats(props: SuperAdminStatsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <StatCard
         title="Total Empresas"
-        value={totalCompanies}
+        value={props.totalCompanies}
         icon={<Building2 className="h-5 w-5" />}
         trend={{ value: 12, direction: 'up' }}
       />
       <StatCard
         title="Empresas Activas"
-        value={activeCompanies}
+        value={props.activeCompanies}
         icon={<CheckCircle2 className="h-5 w-5" />}
         trend={{ value: 8, direction: 'up' }}
       />
       <StatCard
         title="Aprobaciones Pendientes"
-        value={pendingApprovals}
+        value={props.pendingApprovals}
         icon={<Clock className="h-5 w-5" />}
       />
       <StatCard
         title="Empresas Suspendidas"
-        value={suspendedCompanies}
+        value={props.suspendedCompanies}
         icon={<AlertCircle className="h-5 w-5" />}
       />
       <StatCard
         title="Ingresos Mensuales"
-        value={`$${monthlyRevenue.toLocaleString()}`}
+        value={`$${props.monthlyRevenue.toLocaleString()}`}
         icon={<DollarSign className="h-5 w-5" />}
         trend={{ value: 15, direction: 'up' }}
       />
       <StatCard
         title="Usuarios Totales"
-        value={totalUsers}
+        value={props.totalUsers}
         icon={<Users className="h-5 w-5" />}
         trend={{ value: 5, direction: 'up' }}
       />
